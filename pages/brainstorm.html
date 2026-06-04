@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainstorming Tool - Agree/Disagree Essay</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .brainstorm-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .brainstorm-box {
+            background: #f0f8ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #3498db;
+        }
+        .brainstorm-box h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+        .idea-input {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .brainstorm-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">📚 IELTS Writing Lesson</div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="lesson.html">Lesson</a></li>
+                <li><a href="brainstorm.html" class="active">Brainstorm</a></li>
+                <li><a href="essay-builder.html">Essay Builder</a></li>
+                <li><a href="exercises.html">Exercises</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-section">
+            <h1>Interactive Brainstorming Tool</h1>
+            <p>Use this tool to organize your ideas before writing your essay. Fill in your topic and brainstorm both sides of the argument.</p>
+
+            <div class="form-group">
+                <label for="topic"><strong>📝 Enter Your Essay Topic:</strong></label>
+                <textarea id="topic" class="idea-input" placeholder="Paste your IELTS question here..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label><strong>Your Position:</strong></label>
+                <select id="position" style="width: 100%; padding: 0.8rem; border-radius: 4px;">
+                    <option value="">Select your answer type...</option>
+                    <option value="agree">I Completely Agree</option>
+                    <option value="disagree">I Completely Disagree</option>
+                    <option value="balanced">I Partly Agree and Partly Disagree</option>
+                </select>
+            </div>
+
+            <div class="brainstorm-container">
+                <!-- Agree Side -->
+                <div class="brainstorm-box">
+                    <h3>✓ Reasons to AGREE</h3>
+                    <p style="color: #666; font-size: 0.9rem;">List reasons supporting this viewpoint:</p>
+                    <input type="text" class="idea-input" placeholder="Reason 1..." id="agree1">
+                    <textarea class="idea-input" placeholder="Details/Example for Reason 1..." id="agreeDetail1" style="min-height: 60px;"></textarea>
+                    
+                    <input type="text" class="idea-input" placeholder="Reason 2..." id="agree2">
+                    <textarea class="idea-input" placeholder="Details/Example for Reason 2..." id="agreeDetail2" style="min-height: 60px;"></textarea>
+                </div>
+
+                <!-- Disagree Side -->
+                <div class="brainstorm-box" style="border-color: #e74c3c; background: #fff5f5;">
+                    <h3 style="color: #e74c3c;">✗ Reasons to DISAGREE</h3>
+                    <p style="color: #666; font-size: 0.9rem;">List reasons against this viewpoint:</p>
+                    <input type="text" class="idea-input" placeholder="Reason 1..." id="disagree1">
+                    <textarea class="idea-input" placeholder="Details/Example for Reason 1..." id="disagreeDetail1" style="min-height: 60px;"></textarea>
+                    
+                    <input type="text" class="idea-input" placeholder="Reason 2..." id="disagree2">
+                    <textarea class="idea-input" placeholder="Details/Example for Reason 2..." id="disagreeDetail2" style="min-height: 60px;"></textarea>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="saveBrainstorm()">💾 Save Brainstorm</button>
+                <button class="btn btn-secondary" onclick="clearBrainstorm()">🔄 Clear All</button>
+                <button class="btn btn-accent" onclick="downloadBrainstorm()">⬇️ Download</button>
+            </div>
+
+            <div id="message" style="margin-top: 1.5rem;"></div>
+
+            <h3 style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #eee;">📋 Your Brainstorm Summary</h3>
+            <div style="background: #ecf0f1; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                <p><strong>Topic:</strong> <span id="summaryTopic">Not entered yet</span></p>
+                <p><strong>Your Position:</strong> <span id="summaryPosition">Not selected yet</span></p>
+                <p><strong>Main Ideas (Agree):</strong> <span id="summaryAgree">Not entered yet</span></p>
+                <p><strong>Main Ideas (Disagree):</strong> <span id="summaryDisagree">Not entered yet</span></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 IELTS Writing Lesson Platform | Agree/Disagree Essays</p>
+        </div>
+    </footer>
+
+    <script>
+        function saveBrainstorm() {
+            const brainstorm = {
+                topic: document.getElementById('topic').value,
+                position: document.getElementById('position').value,
+                agreeReasons: [
+                    { reason: document.getElementById('agree1').value, detail: document.getElementById('agreeDetail1').value },
+                    { reason: document.getElementById('agree2').value, detail: document.getElementById('agreeDetail2').value }
+                ],
+                disagreeReasons: [
+                    { reason: document.getElementById('disagree1').value, detail: document.getElementById('disagreeDetail1').value },
+                    { reason: document.getElementById('disagree2').value, detail: document.getElementById('disagreeDetail2').value }
+                ],
+                timestamp: new Date().toISOString()
+            };
+
+            localStorage.setItem('brainstorm', JSON.stringify(brainstorm));
+            showMessage('✅ Brainstorm saved successfully!', 'success');
+            updateSummary(brainstorm);
+        }
+
+        function clearBrainstorm() {
+            if (confirm('Are you sure you want to clear everything?')) {
+                document.getElementById('topic').value = '';
+                document.getElementById('position').value = '';
+                document.getElementById('agree1').value = '';
+                document.getElementById('agreeDetail1').value = '';
+                document.getElementById('agree2').value = '';
+                document.getElementById('agreeDetail2').value = '';
+                document.getElementById('disagree1').value = '';
+                document.getElementById('disagreeDetail1').value = '';
+                document.getElementById('disagree2').value = '';
+                document.getElementById('disagreeDetail2').value = '';
+                showMessage('🔄 All cleared!', 'success');
+            }
+        }
+
+        function downloadBrainstorm() {
+            const brainstorm = localStorage.getItem('brainstorm');
+            if (!brainstorm) {
+                showMessage('❌ No brainstorm saved yet. Save first!', 'error');
+                return;
+            }
+
+            const data = JSON.parse(brainstorm);
+            const text = `IELTS ESSAY BRAINSTORM
+=====================
+
+TOPIC: ${data.topic}
+
+POSITION: ${data.position}
+
+AGREE REASONS:
+- ${data.agreeReasons[0].reason}
+  ${data.agreeReasons[0].detail}
+- ${data.agreeReasons[1].reason}
+  ${data.agreeReasons[1].detail}
+
+DISAGREE REASONS:
+- ${data.disagreeReasons[0].reason}
+  ${data.disagreeReasons[0].detail}
+- ${data.disagreeReasons[1].reason}
+  ${data.disagreeReasons[1].detail}
+
+Created: ${new Date(data.timestamp).toLocaleString()}`;
+
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', 'brainstorm.txt');
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+            showMessage('⬇️ Downloaded successfully!', 'success');
+        }
+
+        function showMessage(msg, type) {
+            const msgDiv = document.getElementById('message');
+            msgDiv.textContent = msg;
+            msgDiv.style.padding = '1rem';
+            msgDiv.style.borderRadius = '4px';
+            msgDiv.style.background = type === 'success' ? '#d4edda' : '#f8d7da';
+            msgDiv.style.color = type === 'success' ? '#155724' : '#721c24';
+            msgDiv.style.border = `1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'}`;
+            setTimeout(() => msgDiv.textContent = '', 3000);
+        }
+
+        function updateSummary(data) {
+            document.getElementById('summaryTopic').textContent = data.topic || 'Not entered';
+            document.getElementById('summaryPosition').textContent = data.position === 'agree' ? '✓ Agree' : data.position === 'disagree' ? '✗ Disagree' : '⚖️ Balanced';
+            document.getElementById('summaryAgree').textContent = `${data.agreeReasons[0].reason}, ${data.agreeReasons[1].reason}`;
+            document.getElementById('summaryDisagree').textContent = `${data.disagreeReasons[0].reason}, ${data.disagreeReasons[1].reason}`;
+        }
+
+        // Load saved brainstorm on page load
+        window.onload = function() {
+            const saved = localStorage.getItem('brainstorm');
+            if (saved) {
+                const data = JSON.parse(saved);
+                document.getElementById('topic').value = data.topic;
+                document.getElementById('position').value = data.position;
+                document.getElementById('agree1').value = data.agreeReasons[0].reason;
+                document.getElementById('agreeDetail1').value = data.agreeReasons[0].detail;
+                document.getElementById('agree2').value = data.agreeReasons[1].reason;
+                document.getElementById('agreeDetail2').value = data.agreeReasons[1].detail;
+                document.getElementById('disagree1').value = data.disagreeReasons[0].reason;
+                document.getElementById('disagreeDetail1').value = data.disagreeReasons[0].detail;
+                document.getElementById('disagree2').value = data.disagreeReasons[1].reason;
+                document.getElementById('disagreeDetail2').value = data.disagreeReasons[1].detail;
+                updateSummary(data);
+            }
+        };
+    </script>
+</body>
+</html>
