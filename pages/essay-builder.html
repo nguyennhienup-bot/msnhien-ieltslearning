@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay Builder - Agree/Disagree Essay</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .essay-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .hint {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            color: #856404;
+            border-left: 4px solid #ffc107;
+        }
+        .word-count {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 0.5rem;
+        }
+        textarea.essay-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            min-height: 120px;
+        }
+        textarea.essay-input:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">📚 IELTS Writing Lesson</div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="lesson.html">Lesson</a></li>
+                <li><a href="brainstorm.html">Brainstorm</a></li>
+                <li><a href="essay-builder.html" class="active">Essay Builder</a></li>
+                <li><a href="exercises.html">Exercises</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-section">
+            <h1>✍️ Essay Builder - Step by Step</h1>
+            <p>Write your essay section by section with guided templates and hints.</p>
+
+            <div class="form-group">
+                <label><strong>Your Essay Topic:</strong></label>
+                <textarea id="essayTopic" style="width: 100%; padding: 0.8rem; border-radius: 4px;" placeholder="Paste your IELTS question here..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label><strong>Essay Type:</strong></label>
+                <select id="essayType" style="width: 100%; padding: 0.8rem; border-radius: 4px;">
+                    <option value="">Select essay type...</option>
+                    <option value="one-sided">One-Sided (Completely Agree/Disagree)</option>
+                    <option value="balanced">Balanced (Partly Agree & Disagree)</option>
+                </select>
+            </div>
+
+            <!-- INTRODUCTION SECTION -->
+            <div class="essay-section">
+                <h3>📌 Paragraph 1: INTRODUCTION</h3>
+                <div class="hint">
+                    <strong>💡 Template:</strong> Background statement + Your thesis statement
+                </div>
+                <label>Background Statement:</label>
+                <textarea class="essay-input" id="intro-bg" placeholder="e.g., 'Many people believe that...' or 'It is generally said that...'"></textarea>
+                <div class="word-count" id="bgCount">0 words</div>
+
+                <label style="margin-top: 1rem;">Your Thesis Statement:</label>
+                <textarea class="essay-input" id="intro-thesis" placeholder="e.g., 'Personally, I completely agree/disagree...'"></textarea>
+                <div class="word-count" id="thesisCount">0 words</div>
+
+                <p style="margin-top: 1rem; padding: 1rem; background: #d1ecf1; border-radius: 4px;">
+                    <strong>Full Introduction Preview:</strong><br>
+                    <span id="intro-preview"></span>
+                </p>
+            </div>
+
+            <!-- BODY 1 SECTION -->
+            <div class="essay-section">
+                <h3>📌 Paragraph 2: BODY 1 (First Reason)</h3>
+                <div class="hint">
+                    <strong>💡 Template:</strong> Topic sentence + Explanation + Example
+                </div>
+                
+                <label>Topic Sentence:</label>
+                <textarea class="essay-input" id="body1-topic" placeholder="e.g., 'Firstly, the idea of... is beneficial because...'"></textarea>
+                <div class="word-count" id="body1TopicCount">0 words</div>
+
+                <label style="margin-top: 1rem;">Explanation:</label>
+                <textarea class="essay-input" id="body1-explain" placeholder="e.g., 'This is because... / This can be explained by the fact that...'"></textarea>
+                <div class="word-count" id="body1ExplainCount">0 words</div>
+
+                <label style="margin-top: 1rem;">Example:</label>
+                <textarea class="essay-input" id="body1-example" placeholder="e.g., 'For example, ... / This can be seen in the case of...'"></textarea>
+                <div class="word-count" id="body1ExampleCount">0 words</div>
+            </div>
+
+            <!-- BODY 2 SECTION -->
+            <div class="essay-section">
+                <h3>📌 Paragraph 3: BODY 2 (Second Reason)</h3>
+                <div class="hint">
+                    <strong>💡 Template:</strong> Topic sentence + Explanation + Example
+                </div>
+                
+                <label>Topic Sentence:</label>
+                <textarea class="essay-input" id="body2-topic" placeholder="e.g., 'Secondly, another important point is that...'"></textarea>
+                <div class="word-count" id="body2TopicCount">0 words</div>
+
+                <label style="margin-top: 1rem;">Explanation:</label>
+                <textarea class="essay-input" id="body2-explain" placeholder="e.g., 'This is because... / Indeed, ...'"></textarea>
+                <div class="word-count" id="body2ExplainCount">0 words</div>
+
+                <label style="margin-top: 1rem;">Example:</label>
+                <textarea class="essay-input" id="body2-example" placeholder="e.g., 'For example, ... / To illustrate, ...'"></textarea>
+                <div class="word-count" id="body2ExampleCount">0 words</div>
+            </div>
+
+            <!-- CONCLUSION SECTION -->
+            <div class="essay-section">
+                <h3>📌 Paragraph 4: CONCLUSION</h3>
+                <div class="hint">
+                    <strong>💡 Template:</strong> Restate your position + Summarize main reasons
+                </div>
+                
+                <label>Conclusion:</label>
+                <textarea class="essay-input" id="conclusion" placeholder="e.g., 'In conclusion, I completely agree/disagree that... because [reason 1] and [reason 2].'"></textarea>
+                <div class="word-count" id="conclusionCount">0 words</div>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                <button class="btn btn-primary" onclick="previewEssay()">👁️ Preview Essay</button>
+                <button class="btn btn-secondary" onclick="saveEssay()">💾 Save Essay</button>
+                <button class="btn btn-accent" onclick="downloadEssay()">⬇️ Download</button>
+                <button class="btn btn-secondary" onclick="clearEssay()">🔄 Clear</button>
+            </div>
+
+            <div id="message" style="margin-top: 1.5rem;"></div>
+
+            <!-- FULL ESSAY PREVIEW -->
+            <div id="preview-section" style="display: none; margin-top: 2rem;">
+                <h2>📄 Your Complete Essay</h2>
+                <div style="background: white; padding: 2rem; border: 1px solid #bdc3c7; border-radius: 8px; line-height: 1.8;">
+                    <div id="full-essay"></div>
+                    <p style="text-align: right; margin-top: 2rem; color: #7f8c8d;"><strong>Total Words: <span id="totalWords">0</span></strong></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 IELTS Writing Lesson Platform | Agree/Disagree Essays</p>
+        </div>
+    </footer>
+
+    <script>
+        // Word counter
+        function countWords(text) {
+            return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+        }
+
+        // Update word counts on input
+        document.querySelectorAll('.essay-input').forEach(input => {
+            input.addEventListener('input', function() {
+                const count = countWords(this.value);
+                const countSpan = this.parentElement.querySelector('.word-count');
+                if (countSpan) countSpan.textContent = count + ' words';
+            });
+        });
+
+        function previewEssay() {
+            const intro = document.getElementById('intro-bg').value + ' ' + document.getElementById('intro-thesis').value;
+            const body1 = document.getElementById('body1-topic').value + ' ' + + document.getElementById('body1-explain').value + ' ' + document.getElementById('body1-example').value;
+            const body2 = document.getElementById('body2-topic').value + ' ' + document.getElementById('body2-explain').value + ' ' + document.getElementById('body2-example').value;
+            const conclusion = document.getElementById('conclusion').value;
+
+            const fullEssay = `${intro}\n\n${body1}\n\n${body2}\n\n${conclusion}`;
+            
+            document.getElementById('full-essay').innerHTML = `
+                <p>${document.getElementById('intro-bg').value}</p>
+                <p>${document.getElementById('intro-thesis').value}</p>
+                <p style="margin-top: 1.5rem;">${document.getElementById('body1-topic').value} ${document.getElementById('body1-explain').value} ${document.getElementById('body1-example').value}</p>
+                <p style="margin-top: 1.5rem;">${document.getElementById('body2-topic').value} ${document.getElementById('body2-explain').value} ${document.getElementById('body2-example').value}</p>
+                <p style="margin-top: 1.5rem;">${document.getElementById('conclusion').value}</p>
+            `;
+
+            document.getElementById('totalWords').textContent = countWords(fullEssay);
+            document.getElementById('preview-section').style.display = 'block';
+            document.getElementById('preview-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function saveEssay() {
+            const essay = {
+                topic: document.getElementById('essayTopic').value,
+                type: document.getElementById('essayType').value,
+                intro: {
+                    bg: document.getElementById('intro-bg').value,
+                    thesis: document.getElementById('intro-thesis').value
+                },
+                body1: {
+                    topic: document.getElementById('body1-topic').value,
+                    explain: document.getElementById('body1-explain').value,
+                    example: document.getElementById('body1-example').value
+                },
+                body2: {
+                    topic: document.getElementById('body2-topic').value,
+                    explain: document.getElementById('body2-explain').value,
+                    example: document.getElementById('body2-example').value
+                },
+                conclusion: document.getElementById('conclusion').value,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('savedEssay', JSON.stringify(essay));
+            showMessage('✅ Essay saved successfully!', 'success');
+        }
+
+        function downloadEssay() {
+            const essay = localStorage.getItem('savedEssay');
+            if (!essay) {
+                showMessage('❌ No essay saved. Save first!', 'error');
+                return;
+            }
+            const data = JSON.parse(essay);
+            const text = `IELTS ESSAY
+===========
+
+TOPIC: ${data.topic}
+TYPE: ${data.type}
+
+INTRODUCTION:
+${data.intro.bg}
+${data.intro.thesis}
+
+BODY 1:
+${data.body1.topic}
+${data.body1.explain}
+${data.body1.example}
+
+BODY 2:
+${data.body2.topic}
+${data.body2.explain}
+${data.body2.example}
+
+CONCLUSION:
+${data.conclusion}
+
+Created: ${new Date(data.timestamp).toLocaleString()}`;
+
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', 'essay.txt');
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+            showMessage('⬇️ Downloaded successfully!', 'success');
+        }
+
+        function clearEssay() {
+            if (confirm('Clear all essay content?')) {
+                document.querySelectorAll('.essay-input').forEach(input => input.value = '');
+                document.querySelectorAll('.word-count').forEach(span => span.textContent = '0 words');
+                document.getElementById('preview-section').style.display = 'none';
+                showMessage('🔄 Essay cleared!', 'success');
+            }
+        }
+
+        function showMessage(msg, type) {
+            const msgDiv = document.getElementById('message');
+            msgDiv.textContent = msg;
+            msgDiv.style.padding = '1rem';
+            msgDiv.style.borderRadius = '4px';
+            msgDiv.style.background = type === 'success' ? '#d4edda' : '#f8d7da';
+            msgDiv.style.color = type === 'success' ? '#155724' : '#721c24';
+            msgDiv.style.border = `1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'}`;
+            setTimeout(() => msgDiv.textContent = '', 3000);
+        }
+    </script>
+</body>
+</html>
