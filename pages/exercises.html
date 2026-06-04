@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Exercises - Agree/Disagree Essay</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .exercise-card {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .exercise-card.active {
+            border-left-color: #2ecc71;
+            background: #f0fff4;
+        }
+        .question {
+            background: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+        .hints {
+            background: #fff3cd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #ffc107;
+        }
+        .hints h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+        .hint-item {
+            padding: 0.5rem 0;
+            color: #856404;
+        }
+        .idea-box {
+            background: #e8f4f8;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            border-left: 3px solid #3498db;
+        }
+        .essay-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            min-height: 250px;
+            font-size: 1rem;
+        }
+        .essay-textarea:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+        }
+        .feedback {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            display: none;
+        }
+        .feedback.show {
+            display: block;
+        }
+        .word-count-feedback {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 0.5rem;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #2ecc71;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">📚 IELTS Writing Lesson</div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="lesson.html">Lesson</a></li>
+                <li><a href="brainstorm.html">Brainstorm</a></li>
+                <li><a href="essay-builder.html">Essay Builder</a></li>
+                <li><a href="exercises.html" class="active">Exercises</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-section">
+            <h1>🎯 Practice Exercises</h1>
+            <p>Complete these 4 IELTS-style practice exercises and get instant feedback!</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Your Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p><span id="completedCount">0</span>/4 exercises completed</p>
+
+            <!-- EXERCISE 1 -->
+            <div class="exercise-card" id="exercise1">
+                <h2>Exercise 1: Vocational Training vs University</h2>
+                <div class="question">
+                    While many people go to university for academic study, more people should be encouraged to do vocational training because there is a lack of qualified workers such as electricians and plumbers. To what extent do you agree or disagree?
+                </div>
+
+                <div class="hints">
+                    <h4>💡 Tips & Ideas:</h4>
+                    <div class="hint-item">✓ Think about job market demands</div>
+                    <div class="hint-item">✓ Consider skills development in both paths</div>
+                    <div class="hint-item">✓ Think about economic benefits</div>
+                    <div class="hint-item">✓ Consider career prospects</div>
+                    
+                    <h4 style="margin-top: 1rem;">📌 Sample Ideas if you AGREE:</h4>
+                    <div class="idea-box">Critical shortage of skilled tradespeople in most countries</div>
+                    <div class="idea-box">Vocational training provides faster job entry</div>
+                    <div class="idea-box">Higher earning potential in skilled trades</div>
+                    
+                    <h4 style="margin-top: 1rem;">📌 Sample Ideas if you DISAGREE:</h4>
+                    <div class="idea-box">University education provides broader knowledge</div>
+                    <div class="idea-box">Professional careers require academic qualification</div>
+                    <div class="idea-box">Personal choice should be respected</div>
+                </div>
+
+                <label><strong>Write your essay (250-300 words recommended):</strong></label>
+                <textarea class="essay-textarea" id="essay1" placeholder="Write your essay here..."></textarea>
+                <div class="word-count-feedback" id="wordCount1">0 words</div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="submitEssay(1)">✓ Submit & Get Feedback</button>
+                    <button class="btn btn-secondary" onclick="saveEssayExercise(1)">💾 Save</button>
+                </div>
+
+                <div class="feedback" id="feedback1">
+                    <h4>📊 Feedback:</h4>
+                    <p id="feedbackText1"></p>
+                </div>
+            </div>
+
+            <!-- EXERCISE 2 -->
+            <div class="exercise-card" id="exercise2">
+                <h2>Exercise 2: Technology and Reading Skills</h2>
+                <div class="question">
+                    The increasing use of computers and mobile phones has had a negative effect on young people's reading and writing skills. Do you agree or disagree?
+                </div>
+
+                <div class="hints">
+                    <h4>💡 Tips & Ideas:</h4>
+                    <div class="hint-item">✓ Think about how technology changes communication</div>
+                    <div class="hint-item">✓ Consider different types of reading and writing</div>
+                    <div class="hint-item">✓ Reflect on educational technology benefits</div>
+                    <div class="hint-item">✓ Consider generational differences</div>
+                    
+                    <h4 style="margin-top: 1rem;">📌 Sample Ideas if you AGREE:</h4>
+                    <div class="idea-box">Digital communication reduces formal writing practice</div>
+                    <div class="idea-box">Text speak and abbreviations affect grammar</div>
+                    <div class="idea-box">Screen time replaces reading time</div>
+                    
+                    <h4 style="margin-top: 1rem;">📌 Sample Ideas if you DISAGREE:</h4>
+                    <div class="idea-box">More reading content available online than ever</div>
+                    <div class="idea-box">New forms of digital literacy are emerging</div>
+                    <div class="idea-box">Educational apps and tools improve skills</div>
+                </div>
+
+                <label><strong>Write your essay (250-300 words recommended):</strong></label>
+                <textarea class="essay-textarea" id="essay2" placeholder="Write your essay here..."></textarea>
+                <div class="word-count-feedback" id="wordCount2">0 words</div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="submitEssay(2)">✓ Submit & Get Feedback</button>
+                    <button class="btn btn-secondary" onclick="saveEssayExercise(2)">💾 Save</button>
+                </div>
+
+                <div class="feedback" id="feedback2">
+                    <h4>📊 Feedback:</h4>
+                    <p id="feedbackText2"></p>
+                </div>
+            </div>
+
+            <!-- EXERCISE 3 -->
+            <div class="exercise-card" id="exercise3">
+                <h2>Exercise 3: Global Help and Local Communities</h2>
+                <div class="question">
+                    We cannot help everyone in the world that needs help, so we should only be concerned with our own communities and countries. To what extent do you agree or disagree with this statement?
+                </div>
+
+                <div class="hints">
+                    <h4>💡 Tips & Ideas:</h4>
+                    <div class="hint-item">✓ Consider moral and ethical responsibilities</div>
+                    <div class="hint-item">✓ Think about resource limitations</div>
+                    <div class="hint-item">✓ Reflect on global interdependence</div>
+                    <div class="hint-item">✓ Balance local and global perspectives</div>
+                    
+                    <h4 style="margin-top: 1rem;">📌 Sample Ideas if you AGREE:</h4>
+                    <div class="idea-box">Limited resources require priority setting</div>
+                    <div class="idea-box">Local problems deserve immediate attention</div>
+                    <div class="idea-box">Government responsibility to citizens first</div>
+                    
+                    <h4 style="margin-top: 1rem;">📌 Sample Ideas if you DISAGREE:</h4>
+                    <div class="idea-box">Humanitarian obligation to help globally</div>
+                    <div class="idea-box">Global issues affect everyone eventually</div>
+                    <div class="idea-box">Interconnected world requires cooperation</div>
+                </div>
+
+                <label><strong>Write your essay (250-300 words recommended):</strong></label>
+                <textarea class="essay-textarea" id="essay3" placeholder="Write your essay here..."></textarea>
+                <div class="word-count-feedback" id="wordCount3">0 words</div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="submitEssay(3)">✓ Submit & Get Feedback</button>
+                    <button class="btn btn-secondary" onclick="saveEssayExercise(3)">💾 Save</button>
+                </div>
+
+                <div class="feedback" id="feedback3">
+                    <h4>📊 Feedback:</h4>
+                    <p id="feedbackText3"></p>
+                </div>
+            </div>
+
+            <!-- EXERCISE 4 -->
+            <div class="exercise-card" id="exercise4">
+                <h2>Exercise 4: Unpaid Community Work for Teenagers</h2>
+                <div class="question">
+                    Some people think that all teenagers should be required to do unpaid work in their free time to help the local community. They believe this would benefit both the individual teenager and society as a whole. Do you agree or disagree?
+                </div>
+
+                <div class="hints">
+                    <h4>💡 Tips & Ideas:</h4>
+                    <div class="hint-item">✓ Consider personal development and learning</div>
+                    <div class="hint-item">✓ Think about free time and teenage life</div>
+                    <div class="hint-item">✓ Reflect on community benefit</div>
+                    <div class="hint-item">✓ Consider mandatory vs voluntary participation</div>
+                    
+                    <h4 style="margin-top: 1rem;">📌 Sample Ideas if you AGREE:</h4>
+                    <div class="idea-box">Develops sense of responsibility and civic duty</div>
+                    <div class="idea-box">Builds work ethic and social awareness</div>
+                    <div class="idea-box">Creates community engagement</div>
+                    
+                    <h4 style="margin-top: 1rem;">📌 Sample Ideas if you DISAGREE:</h4>
+                    <div class="idea-box">Unfair to mandate unpaid labor</div>
+                    <div class="idea-box">Teenagers need free time for studies</div>
+                    <div class="idea-box">Should be voluntary, not compulsory</div>
+                </div>
+
+                <label><strong>Write your essay (250-300 words recommended):</strong></label>
+                <textarea class="essay-textarea" id="essay4" placeholder="Write your essay here..."></textarea>
+                <div class="word-count-feedback" id="wordCount4">0 words</div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="submitEssay(4)">✓ Submit & Get Feedback</button>
+                    <button class="btn btn-secondary" onclick="saveEssayExercise(4)">💾 Save</button>
+                </div>
+
+                <div class="feedback" id="feedback4">
+                    <h4>📊 Feedback:</h4>
+                    <p id="feedbackText4"></p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 IELTS Writing Lesson Platform | Agree/Disagree Essays</p>
+        </div>
+    </footer>
+
+    <script>
+        // Word counter
+        function countWords(text) {
+            return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+        }
+
+        // Update word counts on input
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById(`essay${i}`).addEventListener('input', function() {
+                const count = countWords(this.value);
+                document.getElementById(`wordCount${i}`).textContent = count + ' words';
+            });
+        }
+
+        function submitEssay(exerciseNum) {
+            const essay = document.getElementById(`essay${exerciseNum}`).value;
+            const wordCount = countWords(essay);
+
+            if (!essay.trim()) {
+                alert('Please write your essay first!');
+                return;
+            }
+
+            if (wordCount < 150) {
+                alert(`Your essay is too short (${wordCount} words). Aim for at least 250 words.`);
+                return;
+            }
+
+            // Generate feedback
+            let feedback = '<strong>✅ Great effort! Here\'s some feedback:</strong><br><br>';
+            
+            feedback += '<strong>✓ Strengths:</strong><br>';
+            feedback += '• Your essay has a good length (' + wordCount + ' words)<br>';
+            
+            if (essay.includes('agree') || essay.includes('disagree') || essay.includes('believe')) {
+                feedback += '• You clearly stated your position<br>';
+            }
+            
+            if ((essay.match(/for example|for instance|to illustrate|case in point/gi) || []).length >= 2) {
+                feedback += '• You used multiple examples to support your ideas<br>';
+            } else {
+                feedback += '• Try to use more specific examples to support your arguments<br>';
+            }
+
+            if ((essay.match(/firstly|secondly|furthermore|moreover|additionally|however|nevertheless|on the other hand/gi) || []).length >= 3) {
+                feedback += '• Good use of linking words and transitions<br>';
+            } else {
+                feedback += '• Use more linking words (Firstly, Secondly, Furthermore, However, etc.)<br>';
+            }
+
+            feedback += '<br><strong>⚠️ Areas to Improve:</strong><br>';
+            if ((essay.match(/\./g) || []).length < 4) {
+                feedback += '• Make sure you have clear paragraph breaks<br>';
+            }
+            if (wordCount < 200) {
+                feedback += '• Expand your essay to reach the recommended 250-300 words<br>';
+            }
+            if (!essay.match(/therefore|as a result|in conclusion|to conclude/gi)) {
+                feedback += '• Make sure your conclusion is strong and summarizes your main points<br>';
+            }
+
+            feedback += '<br><strong>💡 Next Steps:</strong><br>';
+            feedback += '1. Proofread for grammar and spelling errors<br>';
+            feedback += '2. Add more detailed examples<br>';
+            feedback += '3. Check that all your reasons are clearly explained<br>';
+            feedback += '4. Make sure your conclusion restates your position';
+
+            document.getElementById(`feedbackText${exerciseNum}`).innerHTML = feedback;
+            document.getElementById(`feedback${exerciseNum}`).classList.add('show');
+
+            // Mark as completed
+            markCompleted(exerciseNum);
+            document.getElementById(`exercise${exerciseNum}`).classList.add('active');
+        }
+
+        function saveEssayExercise(exerciseNum) {
+            const essay = document.getElementById(`essay${exerciseNum}`).value;
+            const essays = JSON.parse(localStorage.getItem('exerciseEssays')) || {};
+            essays[`exercise${exerciseNum}`] = {
+                content: essay,
+                timestamp: new Date().toISOString(),
+                wordCount: countWords(essay)
+            };
+            localStorage.setItem('exerciseEssays', JSON.stringify(essays));
+            alert('✅ Exercise ' + exerciseNum + ' saved!');
+        }
+
+        function markCompleted(exerciseNum) {
+            let completed = JSON.parse(localStorage.getItem('completedExercises')) || [];
+            if (!completed.includes(exerciseNum)) {
+                completed.push(exerciseNum);
+                localStorage.setItem('completedExercises', JSON.stringify(completed));
+            }
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const completed = JSON.parse(localStorage.getItem('completedExercises')) || [];
+            const percent = (completed.length / 4) * 100;
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('completedCount').textContent = completed.length;
+        }
+
+        // Load progress on page load
+        window.onload = function() {
+            updateProgress();
+        };
+    </script>
+</body>
+</html>
