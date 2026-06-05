@@ -3,44 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brainstorming Tool - Agree/Disagree Essay</title>
+    <title>Brainstorm Tool - IELTS Writing</title>
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .brainstorm-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .brainstorm-box {
-            background: #f0f8ff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 2px solid #3498db;
-        }
-        .brainstorm-box h3 {
-            color: #3498db;
-            margin-bottom: 1rem;
-        }
-        .idea-input {
-            width: 100%;
-            padding: 0.8rem;
-            margin: 0.5rem 0;
-            border: 1px solid #bdc3c7;
-            border-radius: 4px;
-            font-family: inherit;
-        }
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        @media (max-width: 768px) {
-            .brainstorm-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -56,65 +20,122 @@
         </div>
     </nav>
 
+    <header class="hero">
+        <div class="container">
+            <h1>💭 Brainstorming Tool</h1>
+            <p>Organize your ideas before writing your essay</p>
+        </div>
+    </header>
+
     <main class="container">
-        <div class="content-section">
-            <h1>Interactive Brainstorming Tool</h1>
-            <p>Use this tool to organize your ideas before writing your essay. Fill in your topic and brainstorm both sides of the argument.</p>
-
-            <div class="form-group">
-                <label for="topic"><strong>📝 Enter Your Essay Topic:</strong></label>
-                <textarea id="topic" class="idea-input" placeholder="Paste your IELTS question here..."></textarea>
+        <div class="brainstorm-container">
+            <!-- Topic Section -->
+            <div class="brainstorm-section">
+                <h3>📌 Your Topic</h3>
+                <textarea id="topic-input" placeholder="Paste or write your IELTS essay topic here..."></textarea>
+                
+                <h4>Sample Topics to Practice:</h4>
+                <ul>
+                    <li>"Technology has made communication easier but more superficial."</li>
+                    <li>"Studying at university is the best way to prepare for a successful career."</li>
+                    <li>"Environmental protection should be the primary focus of governments."</li>
+                    <li>"Social media has more negative effects than positive."</li>
+                </ul>
             </div>
 
-            <div class="form-group">
-                <label><strong>Your Position:</strong></label>
-                <select id="position" style="width: 100%; padding: 0.8rem; border-radius: 4px;">
-                    <option value="">Select your answer type...</option>
-                    <option value="agree">I Completely Agree</option>
-                    <option value="disagree">I Completely Disagree</option>
-                    <option value="balanced">I Partly Agree and Partly Disagree</option>
-                </select>
-            </div>
-
-            <div class="brainstorm-container">
-                <!-- Agree Side -->
-                <div class="brainstorm-box">
-                    <h3>✓ Reasons to AGREE</h3>
-                    <p style="color: #666; font-size: 0.9rem;">List reasons supporting this viewpoint:</p>
-                    <input type="text" class="idea-input" placeholder="Reason 1..." id="agree1">
-                    <textarea class="idea-input" placeholder="Details/Example for Reason 1..." id="agreeDetail1" style="min-height: 60px;"></textarea>
-                    
-                    <input type="text" class="idea-input" placeholder="Reason 2..." id="agree2">
-                    <textarea class="idea-input" placeholder="Details/Example for Reason 2..." id="agreeDetail2" style="min-height: 60px;"></textarea>
+            <!-- Opinion Section -->
+            <div class="brainstorm-section">
+                <h3>💭 Your Opinion</h3>
+                
+                <label>Do you agree or disagree?</label>
+                <div style="margin-bottom: 1rem;">
+                    <label style="margin-right: 1rem;">
+                        <input type="radio" name="opinion" value="agree" checked> Completely Agree
+                    </label>
+                    <label style="margin-right: 1rem;">
+                        <input type="radio" name="opinion" value="disagree"> Completely Disagree
+                    </label>
+                    <label>
+                        <input type="radio" name="opinion" value="balanced"> Balanced (Both sides)
+                    </label>
                 </div>
 
-                <!-- Disagree Side -->
-                <div class="brainstorm-box" style="border-color: #e74c3c; background: #fff5f5;">
-                    <h3 style="color: #e74c3c;">✗ Reasons to DISAGREE</h3>
-                    <p style="color: #666; font-size: 0.9rem;">List reasons against this viewpoint:</p>
-                    <input type="text" class="idea-input" placeholder="Reason 1..." id="disagree1">
-                    <textarea class="idea-input" placeholder="Details/Example for Reason 1..." id="disagreeDetail1" style="min-height: 60px;"></textarea>
-                    
-                    <input type="text" class="idea-input" placeholder="Reason 2..." id="disagree2">
-                    <textarea class="idea-input" placeholder="Details/Example for Reason 2..." id="disagreeDetail2" style="min-height: 60px;"></textarea>
-                </div>
+                <textarea id="opinion-input" placeholder="State your opinion clearly..."></textarea>
+            </div>
+        </div>
+
+        <!-- Ideas Section -->
+        <div class="brainstorm-section" style="margin-bottom: 2rem;">
+            <h3>💡 Main Ideas & Arguments</h3>
+            
+            <div style="margin-bottom: 2rem;">
+                <h4>Idea 1:</h4>
+                <input type="text" class="brainstorm-input" placeholder="First main argument..." id="idea1">
+                <button class="btn btn-primary" onclick="addIdea(this)">+ Add Idea</button>
+                <div class="ideas-list" id="ideas-list-1"></div>
             </div>
 
-            <div class="button-group">
-                <button class="btn btn-primary" onclick="saveBrainstorm()">💾 Save Brainstorm</button>
-                <button class="btn btn-secondary" onclick="clearBrainstorm()">🔄 Clear All</button>
-                <button class="btn btn-accent" onclick="downloadBrainstorm()">⬇️ Download</button>
+            <div style="margin-bottom: 2rem;">
+                <h4>Idea 2:</h4>
+                <input type="text" class="brainstorm-input" placeholder="Second main argument..." id="idea2">
+                <button class="btn btn-primary" onclick="addIdea(this)">+ Add Idea</button>
+                <div class="ideas-list" id="ideas-list-2"></div>
             </div>
 
-            <div id="message" style="margin-top: 1.5rem;"></div>
-
-            <h3 style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #eee;">📋 Your Brainstorm Summary</h3>
-            <div style="background: #ecf0f1; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
-                <p><strong>Topic:</strong> <span id="summaryTopic">Not entered yet</span></p>
-                <p><strong>Your Position:</strong> <span id="summaryPosition">Not selected yet</span></p>
-                <p><strong>Main Ideas (Agree):</strong> <span id="summaryAgree">Not entered yet</span></p>
-                <p><strong>Main Ideas (Disagree):</strong> <span id="summaryDisagree">Not entered yet</span></p>
+            <div style="margin-bottom: 2rem;">
+                <h4>Idea 3:</h4>
+                <input type="text" class="brainstorm-input" placeholder="Third main argument..." id="idea3">
+                <button class="btn btn-primary" onclick="addIdea(this)">+ Add Idea</button>
+                <div class="ideas-list" id="ideas-list-3"></div>
             </div>
+        </div>
+
+        <!-- Examples Section -->
+        <div class="brainstorm-section" style="margin-bottom: 2rem;">
+            <h3>📚 Supporting Examples</h3>
+            
+            <label>Example for Idea 1:</label>
+            <textarea id="example1" placeholder="Provide a specific example to support your first idea..."></textarea>
+
+            <label>Example for Idea 2:</label>
+            <textarea id="example2" placeholder="Provide a specific example to support your second idea..."></textarea>
+
+            <label>Example for Idea 3:</label>
+            <textarea id="example3" placeholder="Provide a specific example to support your third idea..."></textarea>
+        </div>
+
+        <!-- Counter-arguments (for balanced approach) -->
+        <div class="brainstorm-section" style="margin-bottom: 2rem;">
+            <h3>⚖️ Counter-arguments (If using balanced approach)</h3>
+            
+            <label>What might others argue?</label>
+            <textarea id="counter-arg" placeholder="Mention the opposing view..."></textarea>
+
+            <label>Why do you think your opinion is stronger?</label>
+            <textarea id="counter-response" placeholder="Explain why your view is better..."></textarea>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="brainstorm-section" style="margin-bottom: 2rem;">
+            <h3>📝 Summary & Conclusion Ideas</h3>
+            
+            <label>Key points to recap:</label>
+            <textarea id="summary" placeholder="What will you summarize in your conclusion?"></textarea>
+
+            <label>Final statement:</label>
+            <textarea id="conclusion" placeholder="How will you end your essay?"></textarea>
+        </div>
+
+        <!-- Action Buttons -->
+        <div style="text-align: center; margin: 2rem 0;">
+            <button class="btn btn-secondary" onclick="saveBrainstorm()">💾 Save Brainstorm</button>
+            <button class="btn btn-danger" onclick="clearBrainstorm()" style="margin-left: 1rem;">🗑️ Clear All</button>
+        </div>
+
+        <!-- Navigation -->
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="lesson.html" class="btn btn-primary">← Back to Lesson</a>
+            <a href="essay-builder.html" class="btn btn-primary" style="margin-left: 1rem;">Next: Essay Builder →</a>
         </div>
     </main>
 
@@ -124,118 +145,80 @@
         </div>
     </footer>
 
+    <script src="../js/main.js"></script>
     <script>
-        function saveBrainstorm() {
-            const brainstorm = {
-                topic: document.getElementById('topic').value,
-                position: document.getElementById('position').value,
-                agreeReasons: [
-                    { reason: document.getElementById('agree1').value, detail: document.getElementById('agreeDetail1').value },
-                    { reason: document.getElementById('agree2').value, detail: document.getElementById('agreeDetail2').value }
-                ],
-                disagreeReasons: [
-                    { reason: document.getElementById('disagree1').value, detail: document.getElementById('disagreeDetail1').value },
-                    { reason: document.getElementById('disagree2').value, detail: document.getElementById('disagreeDetail2').value }
-                ],
-                timestamp: new Date().toISOString()
-            };
-
-            localStorage.setItem('brainstorm', JSON.stringify(brainstorm));
-            showMessage('✅ Brainstorm saved successfully!', 'success');
-            updateSummary(brainstorm);
-        }
-
-        function clearBrainstorm() {
-            if (confirm('Are you sure you want to clear everything?')) {
-                document.getElementById('topic').value = '';
-                document.getElementById('position').value = '';
-                document.getElementById('agree1').value = '';
-                document.getElementById('agreeDetail1').value = '';
-                document.getElementById('agree2').value = '';
-                document.getElementById('agreeDetail2').value = '';
-                document.getElementById('disagree1').value = '';
-                document.getElementById('disagreeDetail1').value = '';
-                document.getElementById('disagree2').value = '';
-                document.getElementById('disagreeDetail2').value = '';
-                showMessage('🔄 All cleared!', 'success');
-            }
-        }
-
-        function downloadBrainstorm() {
-            const brainstorm = localStorage.getItem('brainstorm');
-            if (!brainstorm) {
-                showMessage('❌ No brainstorm saved yet. Save first!', 'error');
-                return;
-            }
-
-            const data = JSON.parse(brainstorm);
-            const text = `IELTS ESSAY BRAINSTORM
-=====================
-
-TOPIC: ${data.topic}
-
-POSITION: ${data.position}
-
-AGREE REASONS:
-- ${data.agreeReasons[0].reason}
-  ${data.agreeReasons[0].detail}
-- ${data.agreeReasons[1].reason}
-  ${data.agreeReasons[1].detail}
-
-DISAGREE REASONS:
-- ${data.disagreeReasons[0].reason}
-  ${data.disagreeReasons[0].detail}
-- ${data.disagreeReasons[1].reason}
-  ${data.disagreeReasons[1].detail}
-
-Created: ${new Date(data.timestamp).toLocaleString()}`;
-
-            const element = document.createElement('a');
-            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-            element.setAttribute('download', 'brainstorm.txt');
-            element.style.display = 'none';
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
-            showMessage('⬇️ Downloaded successfully!', 'success');
-        }
-
-        function showMessage(msg, type) {
-            const msgDiv = document.getElementById('message');
-            msgDiv.textContent = msg;
-            msgDiv.style.padding = '1rem';
-            msgDiv.style.borderRadius = '4px';
-            msgDiv.style.background = type === 'success' ? '#d4edda' : '#f8d7da';
-            msgDiv.style.color = type === 'success' ? '#155724' : '#721c24';
-            msgDiv.style.border = `1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'}`;
-            setTimeout(() => msgDiv.textContent = '', 3000);
-        }
-
-        function updateSummary(data) {
-            document.getElementById('summaryTopic').textContent = data.topic || 'Not entered';
-            document.getElementById('summaryPosition').textContent = data.position === 'agree' ? '✓ Agree' : data.position === 'disagree' ? '✗ Disagree' : '⚖️ Balanced';
-            document.getElementById('summaryAgree').textContent = `${data.agreeReasons[0].reason}, ${data.agreeReasons[1].reason}`;
-            document.getElementById('summaryDisagree').textContent = `${data.disagreeReasons[0].reason}, ${data.disagreeReasons[1].reason}`;
-        }
-
-        // Load saved brainstorm on page load
-        window.onload = function() {
+        // Load brainstorm from localStorage
+        function loadBrainstorm() {
             const saved = localStorage.getItem('brainstorm');
             if (saved) {
                 const data = JSON.parse(saved);
-                document.getElementById('topic').value = data.topic;
-                document.getElementById('position').value = data.position;
-                document.getElementById('agree1').value = data.agreeReasons[0].reason;
-                document.getElementById('agreeDetail1').value = data.agreeReasons[0].detail;
-                document.getElementById('agree2').value = data.agreeReasons[1].reason;
-                document.getElementById('agreeDetail2').value = data.agreeReasons[1].detail;
-                document.getElementById('disagree1').value = data.disagreeReasons[0].reason;
-                document.getElementById('disagreeDetail1').value = data.disagreeReasons[0].detail;
-                document.getElementById('disagree2').value = data.disagreeReasons[1].reason;
-                document.getElementById('disagreeDetail2').value = data.disagreeReasons[1].detail;
-                updateSummary(data);
+                document.getElementById('topic-input').value = data.topic || '';
+                document.getElementById('opinion-input').value = data.opinion || '';
+                document.getElementById('idea1').value = data.idea1 || '';
+                document.getElementById('idea2').value = data.idea2 || '';
+                document.getElementById('idea3').value = data.idea3 || '';
+                document.getElementById('example1').value = data.example1 || '';
+                document.getElementById('example2').value = data.example2 || '';
+                document.getElementById('example3').value = data.example3 || '';
+                document.getElementById('counter-arg').value = data.counterArg || '';
+                document.getElementById('counter-response').value = data.counterResponse || '';
+                document.getElementById('summary').value = data.summary || '';
+                document.getElementById('conclusion').value = data.conclusion || '';
+                
+                const opinionRadios = document.querySelectorAll('input[name="opinion"]');
+                opinionRadios.forEach(radio => {
+                    if (radio.value === data.opinionType) {
+                        radio.checked = true;
+                    }
+                });
             }
-        };
+        }
+
+        // Save brainstorm to localStorage
+        function saveBrainstorm() {
+            const brainstormData = {
+                topic: document.getElementById('topic-input').value,
+                opinion: document.getElementById('opinion-input').value,
+                opinionType: document.querySelector('input[name="opinion"]:checked').value,
+                idea1: document.getElementById('idea1').value,
+                idea2: document.getElementById('idea2').value,
+                idea3: document.getElementById('idea3').value,
+                example1: document.getElementById('example1').value,
+                example2: document.getElementById('example2').value,
+                example3: document.getElementById('example3').value,
+                counterArg: document.getElementById('counter-arg').value,
+                counterResponse: document.getElementById('counter-response').value,
+                summary: document.getElementById('summary').value,
+                conclusion: document.getElementById('conclusion').value
+            };
+            
+            localStorage.setItem('brainstorm', JSON.stringify(brainstormData));
+            alert('✅ Brainstorm saved successfully!');
+            updateProgress('brainstorm');
+        }
+
+        // Clear brainstorm
+        function clearBrainstorm() {
+            if (confirm('Are you sure you want to clear everything?')) {
+                document.getElementById('topic-input').value = '';
+                document.getElementById('opinion-input').value = '';
+                document.getElementById('idea1').value = '';
+                document.getElementById('idea2').value = '';
+                document.getElementById('idea3').value = '';
+                document.getElementById('example1').value = '';
+                document.getElementById('example2').value = '';
+                document.getElementById('example3').value = '';
+                document.getElementById('counter-arg').value = '';
+                document.getElementById('counter-response').value = '';
+                document.getElementById('summary').value = '';
+                document.getElementById('conclusion').value = '';
+                localStorage.removeItem('brainstorm');
+                alert('✅ Cleared!');
+            }
+        }
+
+        // Load on page load
+        window.addEventListener('load', loadBrainstorm);
     </script>
 </body>
 </html>
