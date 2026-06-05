@@ -23,123 +23,76 @@
     <header class="hero">
         <div class="container">
             <h1>✍️ Essay Builder</h1>
-            <p>Build your essay step-by-step with guidance</p>
+            <p>Build your essay paragraph by paragraph</p>
         </div>
     </header>
 
     <main class="container">
         <div class="essay-builder">
-            <!-- Step 1: Introduction -->
-            <div class="builder-step">
-                <div class="step-title">Step 1: Write Your Introduction</div>
-                <p>Your introduction should:</p>
-                <ul>
-                    <li>Paraphrase the given topic</li>
-                    <li>Clearly state your opinion (agree/disagree)</li>
-                    <li>Preview your main ideas (optional)</li>
-                </ul>
-                <label>Your Introduction:</label>
-                <textarea id="intro-text" placeholder="Write your introduction here... (2-3 sentences)"></textarea>
-                <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
-                    Word count: <span id="intro-count">0</span> words
-                </div>
-                <div class="template-box" style="margin-top: 1rem;">
-                    <strong>Example Introduction:</strong>
-                    <p>"The statement that modern technology has negatively affected human relationships is a contentious issue. I strongly disagree with this view, as technology has actually enhanced communication and brought people closer together."</p>
-                </div>
+            <h2>Build Your Essay</h2>
+
+            <!-- Paragraph 1: Introduction -->
+            <div style="margin-bottom: 2rem;">
+                <h3>📝 Paragraph 1: Introduction</h3>
+                <label>Background statement:</label>
+                <input type="text" class="brainstorm-input" id="intro-bg" placeholder="e.g., Many people believe that...">
+                
+                <label>Your thesis (your opinion):</label>
+                <input type="text" class="brainstorm-input" id="intro-thesis" placeholder="e.g., I completely agree/disagree with this view.">
             </div>
 
-            <!-- Step 2: Body Paragraph 1 -->
-            <div class="builder-step">
-                <div class="step-title">Step 2: Write Body Paragraph 1 (First Reason)</div>
-                <p>Include:</p>
-                <ul>
-                    <li>Topic sentence stating your first argument</li>
-                    <li>Explanation or evidence</li>
-                    <li>Specific example</li>
-                </ul>
-                <label>Topic Sentence:</label>
-                <input type="text" class="brainstorm-input" id="para1-topic" placeholder="e.g., 'Firstly, technology enables people to maintain long-distance relationships...'">
+            <!-- Paragraph 2: Body 1 -->
+            <div style="margin-bottom: 2rem;">
+                <h3>📝 Paragraph 2: Body (First Reason)</h3>
+                <label>Topic sentence:</label>
+                <input type="text" class="brainstorm-input" id="para1-topic" placeholder="Firstly, ...">
                 
-                <label>Supporting Details/Evidence:</label>
-                <textarea id="para1-details" placeholder="Explain your argument with details..."></textarea>
+                <label>Explanation:</label>
+                <textarea id="para1-explain" placeholder="Explain why this is true..."></textarea>
                 
                 <label>Example:</label>
-                <textarea id="para1-example" placeholder="Provide a specific example to support this argument..."></textarea>
-                
-                <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
-                    Word count: <span id="para1-count">0</span> words
-                </div>
+                <textarea id="para1-example" placeholder="Give a specific example..."></textarea>
             </div>
 
-            <!-- Step 3: Body Paragraph 2 -->
-            <div class="builder-step">
-                <div class="step-title">Step 3: Write Body Paragraph 2 (Second Reason)</div>
-                <p>Make sure this argument is different from paragraph 1.</p>
-                <label>Topic Sentence:</label>
-                <input type="text" class="brainstorm-input" id="para2-topic" placeholder="e.g., 'Moreover, technological platforms enable people to find like-minded individuals...'">
+            <!-- Paragraph 3: Body 2 -->
+            <div style="margin-bottom: 2rem;">
+                <h3>📝 Paragraph 3: Body (Second Reason)</h3>
+                <label>Topic sentence:</label>
+                <input type="text" class="brainstorm-input" id="para2-topic" placeholder="Secondly, ...">
                 
-                <label>Supporting Details/Evidence:</label>
-                <textarea id="para2-details" placeholder="Explain your argument with details..."></textarea>
+                <label>Explanation:</label>
+                <textarea id="para2-explain" placeholder="Explain why this is true..."></textarea>
                 
                 <label>Example:</label>
-                <textarea id="para2-example" placeholder="Provide a specific example to support this argument..."></textarea>
-                
-                <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
-                    Word count: <span id="para2-count">0</span> words
+                <textarea id="para2-example" placeholder="Give a specific example..."></textarea>
+            </div>
+
+            <!-- Paragraph 4: Conclusion -->
+            <div style="margin-bottom: 2rem;">
+                <h3>📝 Paragraph 4: Conclusion</h3>
+                <label>Restate your opinion and summarize:</label>
+                <textarea id="conclusion" placeholder="In conclusion, ..."></textarea>
+            </div>
+
+            <!-- Essay Preview -->
+            <div style="margin-bottom: 2rem;">
+                <h3>📄 Your Essay Preview:</h3>
+                <div class="essay-preview" id="essay-preview" style="border: 1px solid #ddd; padding: 1rem; min-height: 200px; background-color: #f9f9f9;">
+                    <p style="color: #999;">Your essay will appear here...</p>
                 </div>
             </div>
 
-            <!-- Step 4: Body Paragraph 3 (Optional) -->
-            <div class="builder-step">
-                <div class="step-title">Step 4: Write Body Paragraph 3 (Optional - Third Reason)</div>
-                <p>If you feel you need a third argument, add it here.</p>
-                <label>Topic Sentence:</label>
-                <input type="text" class="brainstorm-input" id="para3-topic" placeholder="e.g., 'Additionally, technology has created new opportunities for collaboration...'">
-                
-                <label>Supporting Details/Evidence:</label>
-                <textarea id="para3-details" placeholder="Explain your argument with details..."></textarea>
-                
-                <label>Example:</label>
-                <textarea id="para3-example" placeholder="Provide a specific example to support this argument..."></textarea>
-                
-                <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
-                    Word count: <span id="para3-count">0</span> words
-                </div>
+            <!-- Word Count -->
+            <div style="text-align: center; margin-bottom: 2rem; color: #666;">
+                <strong>Total Word Count: <span id="total-words">0</span> words</strong>
             </div>
 
-            <!-- Step 5: Conclusion -->
-            <div class="builder-step">
-                <div class="step-title">Step 5: Write Your Conclusion</div>
-                <p>Your conclusion should:</p>
-                <ul>
-                    <li>Restate your opinion</li>
-                    <li>Summarize your main arguments briefly</li>
-                    <li>End with a strong closing statement</li>
-                </ul>
-                <label>Your Conclusion:</label>
-                <textarea id="conclusion-text" placeholder="Write your conclusion here... (2-3 sentences)"></textarea>
-                <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
-                    Word count: <span id="conclusion-count">0</span> words
-                </div>
-                <div class="template-box" style="margin-top: 1rem;">
-                    <strong>Example Conclusion:</strong>
-                    <p>"In conclusion, I firmly believe that technology has strengthened human relationships rather than weakening them. Technology enables long-distance communication, helps people find communities, and facilitates collaboration. Therefore, society should embrace technology as a tool for human connection."</p>
-                </div>
-            </div>
-
-            <!-- Complete Essay Preview -->
-            <div class="builder-step">
-                <div class="step-title">📄 Your Complete Essay Preview</div>
-                <div class="essay-preview" id="essay-preview">
-                    <p style="color: #999;">Your essay will appear here as you write...</p>
-                </div>
-                <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <button class="btn btn-primary" onclick="updatePreview()">🔄 Update Preview</button>
-                    <button class="btn btn-secondary" onclick="saveEssay()">💾 Save Essay</button>
-                    <button class="btn btn-secondary" onclick="downloadEssayBuilder()">📥 Download Essay</button>
-                    <button class="btn btn-danger" onclick="clearBuilder()">🗑️ Clear All</button>
-                </div>
+            <!-- Action Buttons -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <button class="btn btn-primary" onclick="updatePreview()">🔄 Update Preview</button>
+                <button class="btn btn-secondary" onclick="saveEssay()" style="margin-left: 1rem;">💾 Save Essay</button>
+                <button class="btn btn-secondary" onclick="downloadEssay()" style="margin-left: 1rem;">📥 Download</button>
+                <button class="btn btn-danger" onclick="clearEssay()" style="margin-left: 1rem;">🗑️ Clear</button>
             </div>
 
             <div style="text-align: center; margin-top: 2rem;">
@@ -162,84 +115,75 @@
             return text.trim().split(/\s+/).filter(word => word.length > 0).length;
         }
 
-        // Update word counts
-        function updateWordCounts() {
-            document.getElementById('intro-count').textContent = countWords(document.getElementById('intro-text').value);
-            document.getElementById('para1-count').textContent = countWords(
-                document.getElementById('para1-topic').value + ' ' +
-                document.getElementById('para1-details').value + ' ' +
-                document.getElementById('para1-example').value
-            );
-            document.getElementById('para2-count').textContent = countWords(
-                document.getElementById('para2-topic').value + ' ' +
-                document.getElementById('para2-details').value + ' ' +
-                document.getElementById('para2-example').value
-            );
-            document.getElementById('para3-count').textContent = countWords(
-                document.getElementById('para3-topic').value + ' ' +
-                document.getElementById('para3-details').value + ' ' +
-                document.getElementById('para3-example').value
-            );
-            document.getElementById('conclusion-count').textContent = countWords(document.getElementById('conclusion-text').value);
-        }
-
         // Update preview
         function updatePreview() {
-            const intro = document.getElementById('intro-text').value;
-            const para1 = document.getElementById('para1-topic').value + ' ' + document.getElementById('para1-details').value + ' ' + document.getElementById('para1-example').value;
-            const para2 = document.getElementById('para2-topic').value + ' ' + document.getElementById('para2-details').value + ' ' + document.getElementById('para2-example').value;
-            const para3 = document.getElementById('para3-topic').value + ' ' + document.getElementById('para3-details').value + ' ' + document.getElementById('para3-example').value;
-            const conclusion = document.getElementById('conclusion-text').value;
+            const introBg = document.getElementById('intro-bg').value;
+            const introThesis = document.getElementById('intro-thesis').value;
+            const para1Topic = document.getElementById('para1-topic').value;
+            const para1Explain = document.getElementById('para1-explain').value;
+            const para1Example = document.getElementById('para1-example').value;
+            const para2Topic = document.getElementById('para2-topic').value;
+            const para2Explain = document.getElementById('para2-explain').value;
+            const para2Example = document.getElementById('para2-example').value;
+            const conclusion = document.getElementById('conclusion').value;
 
             let essay = '';
-            if (intro) essay += `<p>${intro}</p>`;
-            if (para1) essay += `<p>${para1}</p>`;
-            if (para2) essay += `<p>${para2}</p>`;
-            if (para3) essay += `<p>${para3}</p>`;
-            if (conclusion) essay += `<p>${conclusion}</p>`;
+            
+            if (introBg || introThesis) {
+                essay += `<p><strong>Introduction:</strong> ${introBg} ${introThesis}</p>`;
+            }
+            
+            if (para1Topic || para1Explain || para1Example) {
+                essay += `<p><strong>First Reason:</strong> ${para1Topic} ${para1Explain} ${para1Example}</p>`;
+            }
+            
+            if (para2Topic || para2Explain || para2Example) {
+                essay += `<p><strong>Second Reason:</strong> ${para2Topic} ${para2Explain} ${para2Example}</p>`;
+            }
+            
+            if (conclusion) {
+                essay += `<p><strong>Conclusion:</strong> ${conclusion}</p>`;
+            }
 
-            const totalWords = countWords(intro + ' ' + para1 + ' ' + para2 + ' ' + para3 + ' ' + conclusion);
+            const totalText = introBg + introThesis + para1Topic + para1Explain + para1Example + para2Topic + para2Explain + para2Example + conclusion;
+            const totalWords = countWords(totalText);
 
-            document.getElementById('essay-preview').innerHTML = essay || '<p style="color: #999;">Your essay will appear here as you write...</p>';
-            document.getElementById('essay-preview').innerHTML += `<p style="margin-top: 1rem; color: #666; font-weight: bold;">Total: ${totalWords} words</p>`;
+            document.getElementById('essay-preview').innerHTML = essay || '<p style="color: #999;">Your essay will appear here...</p>';
+            document.getElementById('total-words').textContent = totalWords;
         }
 
         // Save essay
         function saveEssay() {
             const essay = {
-                intro: document.getElementById('intro-text').value,
-                para1: {
-                    topic: document.getElementById('para1-topic').value,
-                    details: document.getElementById('para1-details').value,
-                    example: document.getElementById('para1-example').value
-                },
-                para2: {
-                    topic: document.getElementById('para2-topic').value,
-                    details: document.getElementById('para2-details').value,
-                    example: document.getElementById('para2-example').value
-                },
-                para3: {
-                    topic: document.getElementById('para3-topic').value,
-                    details: document.getElementById('para3-details').value,
-                    example: document.getElementById('para3-example').value
-                },
-                conclusion: document.getElementById('conclusion-text').value
+                introBg: document.getElementById('intro-bg').value,
+                introThesis: document.getElementById('intro-thesis').value,
+                para1Topic: document.getElementById('para1-topic').value,
+                para1Explain: document.getElementById('para1-explain').value,
+                para1Example: document.getElementById('para1-example').value,
+                para2Topic: document.getElementById('para2-topic').value,
+                para2Explain: document.getElementById('para2-explain').value,
+                para2Example: document.getElementById('para2-example').value,
+                conclusion: document.getElementById('conclusion').value
             };
-
+            
             localStorage.setItem('essayBuilder', JSON.stringify(essay));
             alert('✅ Essay saved successfully!');
             updateProgress('essay');
         }
 
         // Download essay
-        function downloadEssayBuilder() {
-            const intro = document.getElementById('intro-text').value;
-            const para1 = document.getElementById('para1-topic').value + '\n' + document.getElementById('para1-details').value + '\n' + document.getElementById('para1-example').value;
-            const para2 = document.getElementById('para2-topic').value + '\n' + document.getElementById('para2-details').value + '\n' + document.getElementById('para2-example').value;
-            const para3 = document.getElementById('para3-topic').value + '\n' + document.getElementById('para3-details').value + '\n' + document.getElementById('para3-example').value;
-            const conclusion = document.getElementById('conclusion-text').value;
+        function downloadEssay() {
+            const introBg = document.getElementById('intro-bg').value;
+            const introThesis = document.getElementById('intro-thesis').value;
+            const para1Topic = document.getElementById('para1-topic').value;
+            const para1Explain = document.getElementById('para1-explain').value;
+            const para1Example = document.getElementById('para1-example').value;
+            const para2Topic = document.getElementById('para2-topic').value;
+            const para2Explain = document.getElementById('para2-explain').value;
+            const para2Example = document.getElementById('para2-example').value;
+            const conclusion = document.getElementById('conclusion').value;
 
-            const fullEssay = `IELTS Essay\n\n${intro}\n\n${para1}\n\n${para2}\n\n${para3}\n\n${conclusion}`;
+            const fullEssay = `IELTS Essay\n\nIntroduction:\n${introBg}\n${introThesis}\n\nFirst Reason:\n${para1Topic}\n${para1Explain}\n${para1Example}\n\nSecond Reason:\n${para2Topic}\n${para2Explain}\n${para2Example}\n\nConclusion:\n${conclusion}`;
 
             const element = document.createElement('a');
             element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(fullEssay));
@@ -250,22 +194,19 @@
             document.body.removeChild(element);
         }
 
-        // Clear all
-        function clearBuilder() {
-            if (confirm('Are you sure? This will clear all your writing.')) {
-                document.getElementById('intro-text').value = '';
+        // Clear essay
+        function clearEssay() {
+            if (confirm('Are you sure you want to clear everything?')) {
+                document.getElementById('intro-bg').value = '';
+                document.getElementById('intro-thesis').value = '';
                 document.getElementById('para1-topic').value = '';
-                document.getElementById('para1-details').value = '';
+                document.getElementById('para1-explain').value = '';
                 document.getElementById('para1-example').value = '';
                 document.getElementById('para2-topic').value = '';
-                document.getElementById('para2-details').value = '';
+                document.getElementById('para2-explain').value = '';
                 document.getElementById('para2-example').value = '';
-                document.getElementById('para3-topic').value = '';
-                document.getElementById('para3-details').value = '';
-                document.getElementById('para3-example').value = '';
-                document.getElementById('conclusion-text').value = '';
+                document.getElementById('conclusion').value = '';
                 updatePreview();
-                updateWordCounts();
             }
         }
 
@@ -274,29 +215,27 @@
             const saved = localStorage.getItem('essayBuilder');
             if (saved) {
                 const essay = JSON.parse(saved);
-                document.getElementById('intro-text').value = essay.intro || '';
-                document.getElementById('para1-topic').value = essay.para1.topic || '';
-                document.getElementById('para1-details').value = essay.para1.details || '';
-                document.getElementById('para1-example').value = essay.para1.example || '';
-                document.getElementById('para2-topic').value = essay.para2.topic || '';
-                document.getElementById('para2-details').value = essay.para2.details || '';
-                document.getElementById('para2-example').value = essay.para2.example || '';
-                document.getElementById('para3-topic').value = essay.para3.topic || '';
-                document.getElementById('para3-details').value = essay.para3.details || '';
-                document.getElementById('para3-example').value = essay.para3.example || '';
-                document.getElementById('conclusion-text').value = essay.conclusion || '';
+                document.getElementById('intro-bg').value = essay.introBg || '';
+                document.getElementById('intro-thesis').value = essay.introThesis || '';
+                document.getElementById('para1-topic').value = essay.para1Topic || '';
+                document.getElementById('para1-explain').value = essay.para1Explain || '';
+                document.getElementById('para1-example').value = essay.para1Example || '';
+                document.getElementById('para2-topic').value = essay.para2Topic || '';
+                document.getElementById('para2-explain').value = essay.para2Explain || '';
+                document.getElementById('para2-example').value = essay.para2Example || '';
+                document.getElementById('conclusion').value = essay.conclusion || '';
                 updatePreview();
-                updateWordCounts();
             }
         }
 
-        // Add event listeners for auto word count
+        // Initialize on page load
         window.addEventListener('load', function() {
             loadSavedEssay();
-            updateWordCounts();
             
-            document.querySelectorAll('textarea, input').forEach(el => {
-                el.addEventListener('input', updateWordCounts);
+            document.querySelectorAll('input, textarea').forEach(el => {
+                el.addEventListener('input', function() {
+                    updatePreview();
+                });
             });
         });
     </script>
