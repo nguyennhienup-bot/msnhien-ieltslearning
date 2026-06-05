@@ -22,19 +22,19 @@
 
 | Paragraph | Component | Content |
 |-----------|-----------|---------|
-| **1** | **Introduction** | • Background statement<br>• Thesis statement: In my opinion, I completely agree/disagree with this view. |
-| **2** | **Body 1** | Topic sentence: The first reason why I agree/disagree is that …<br>Support: (Explain/Example) |
-| **3** | **Body 2** | Topic sentence: Another rationale behind my belief is that …<br>Support: (Explain/Example) |
-| **4** | **Conclusion** | In conclusion, I completely agree/disagree that [paraphrase the topic] because [reason 1] and [reason 2]. |
+| **Paragraph 1** | **Introduction** | • Background statement<br>• Thesis statement: In my opinion, I completely agree/disagree with this view. |
+| **Paragraph 2** | **Body 1: 1st Reason** | • Topic sentence: The first reason why I agree/disagree is that …<br>• Support: (Explain/Example) |
+| **Paragraph 3** | **Body 2: 2nd Reason** | • Topic sentence: Another rationale behind my belief is that …<br>• Support: (Explain/Example) |
+| **Paragraph 4** | **Conclusion** | In conclusion, I completely agree/disagree that [paraphrase the topic] because [reason 1] and [reason 2]. |
 
 ### II.2 Balance Answer (Partly Agree/Disagree)
 
 | Paragraph | Component | Content |
 |-----------|-----------|---------|
-| **1** | **Introduction** | • Background statement<br>• Thesis statement: Although I agree that [viewpoint 1], I still believe [viewpoint 2] |
-| **2** | **Body 1** | Topic sentence: It is true that…<br>• Main idea 1 + Support 1<br>• Main idea 2 + Support 2 |
-| **3** | **Body 2** | Topic sentence: Nevertheless, I still hold the view that…<br>• Main idea 1 + Support 1<br>• Main idea 2 + Support 2 |
-| **4** | **Conclusion** | In conclusion, while I agree with the view that [viewpoint 1], I still believe [viewpoint 2] |
+| **Paragraph 1** | **Introduction** | • Background statement<br>• Thesis statement: Although I agree that [viewpoint 1], I still believe [viewpoint 2] |
+| **Paragraph 2** | **Body 1: Reasons You Agree/Disagree** | • Topic sentence: It is true that…<br>• Main idea 1: Support 1 (Explain/Example)<br>• Main idea 2: Support 2 (Explain/Example) |
+| **Paragraph 3** | **Body 2: Reasons You Disagree/Agree** | • Topic sentence: Nevertheless, I still hold the view that…<br>• Main idea 1: Support 1 (Explain/Example)<br>• Main idea 2: Support 2 (Explain/Example) |
+| **Paragraph 4** | **Conclusion** | In conclusion, while I agree with the view that [viewpoint 1], I still believe [viewpoint 2] |
 
 ---
 
@@ -167,22 +167,6 @@
 
 - In conclusion, while there are some reasons why people think that …, I am of the opinion that …
 - In conclusion, while there are many benefits/drawbacks regarding ..., I still believe that it is more beneficial/disadvantageous to … because …
-
----
-
-## IV. PRACTICE EXERCISES
-
-### Exercise 1
-While many people go to university for academic study, more people should be encouraged to do vocational training because there is a lack of qualified workers such as electricians and plumbers. To what extent do you agree or disagree?
-
-### Exercise 2
-The increasing use of computers and mobile phones has had a negative effect on young people's reading and writing skills. Do you agree or disagree?
-
-### Exercise 3
-We cannot help everyone in the world that needs help, so we should only be concerned with our own communities and countries. To what extent do you agree or disagree with this statement?
-
-### Exercise 4
-Some people think that all teenagers should be required to do unpaid work in their free time to help the local community. They believe this would benefit both the individual teenager and society as a whole. Do you agree or disagree?
 
 ---
 
