@@ -29,113 +29,73 @@
 
     <main class="container">
         <div class="brainstorm-container">
-            <!-- Topic Section -->
-            <div class="brainstorm-section">
-                <h3>📌 Your Topic</h3>
-                <textarea id="topic-input" placeholder="Paste or write your IELTS essay topic here..."></textarea>
-                
-                <h4>Sample Topics to Practice:</h4>
-                <ul>
-                    <li>"Technology has made communication easier but more superficial."</li>
-                    <li>"Studying at university is the best way to prepare for a successful career."</li>
-                    <li>"Environmental protection should be the primary focus of governments."</li>
-                    <li>"Social media has more negative effects than positive."</li>
-                </ul>
-            </div>
+            <h2>Step 1: Understand Your Topic</h2>
+            <label>Your Topic:</label>
+            <textarea id="topic-input" placeholder="Paste or write your IELTS essay topic here..."></textarea>
 
-            <!-- Opinion Section -->
-            <div class="brainstorm-section">
-                <h3>💭 Your Opinion</h3>
-                
+            <h2>Step 2: Decide Your Position</h2>
+            <div style="margin-bottom: 2rem;">
                 <label>Do you agree or disagree?</label>
-                <div style="margin-bottom: 1rem;">
-                    <label style="margin-right: 1rem;">
+                <div style="margin: 1rem 0;">
+                    <label style="margin-right: 2rem;">
                         <input type="radio" name="opinion" value="agree" checked> Completely Agree
                     </label>
-                    <label style="margin-right: 1rem;">
+                    <label style="margin-right: 2rem;">
                         <input type="radio" name="opinion" value="disagree"> Completely Disagree
                     </label>
                     <label>
-                        <input type="radio" name="opinion" value="balanced"> Balanced (Both sides)
+                        <input type="radio" name="opinion" value="balanced"> Balanced (Partly Agree)
                     </label>
                 </div>
-
-                <textarea id="opinion-input" placeholder="State your opinion clearly..."></textarea>
             </div>
-        </div>
 
-        <!-- Ideas Section -->
-        <div class="brainstorm-section" style="margin-bottom: 2rem;">
-            <h3>💡 Main Ideas & Arguments</h3>
-            
+            <h2>Step 3: Brainstorm Your Main Ideas</h2>
             <div style="margin-bottom: 2rem;">
-                <h4>Idea 1:</h4>
-                <input type="text" class="brainstorm-input" placeholder="First main argument..." id="idea1">
-                <button class="btn btn-primary" onclick="addIdea(this)">+ Add Idea</button>
-                <div class="ideas-list" id="ideas-list-1"></div>
+                <h3>Main Idea 1:</h3>
+                <input type="text" class="brainstorm-input" id="idea1" placeholder="Your first main argument...">
             </div>
 
             <div style="margin-bottom: 2rem;">
-                <h4>Idea 2:</h4>
-                <input type="text" class="brainstorm-input" placeholder="Second main argument..." id="idea2">
-                <button class="btn btn-primary" onclick="addIdea(this)">+ Add Idea</button>
-                <div class="ideas-list" id="ideas-list-2"></div>
+                <h3>Main Idea 2:</h3>
+                <input type="text" class="brainstorm-input" id="idea2" placeholder="Your second main argument...">
             </div>
 
             <div style="margin-bottom: 2rem;">
-                <h4>Idea 3:</h4>
-                <input type="text" class="brainstorm-input" placeholder="Third main argument..." id="idea3">
-                <button class="btn btn-primary" onclick="addIdea(this)">+ Add Idea</button>
-                <div class="ideas-list" id="ideas-list-3"></div>
+                <h3>Main Idea 3 (Optional):</h3>
+                <input type="text" class="brainstorm-input" id="idea3" placeholder="Your third main argument...">
             </div>
-        </div>
 
-        <!-- Examples Section -->
-        <div class="brainstorm-section" style="margin-bottom: 2rem;">
-            <h3>📚 Supporting Examples</h3>
-            
-            <label>Example for Idea 1:</label>
-            <textarea id="example1" placeholder="Provide a specific example to support your first idea..."></textarea>
+            <h2>Step 4: Add Supporting Examples</h2>
+            <div style="margin-bottom: 2rem;">
+                <label>Example for Idea 1:</label>
+                <textarea id="example1" placeholder="Provide a specific example..."></textarea>
+            </div>
 
-            <label>Example for Idea 2:</label>
-            <textarea id="example2" placeholder="Provide a specific example to support your second idea..."></textarea>
+            <div style="margin-bottom: 2rem;">
+                <label>Example for Idea 2:</label>
+                <textarea id="example2" placeholder="Provide a specific example..."></textarea>
+            </div>
 
-            <label>Example for Idea 3:</label>
-            <textarea id="example3" placeholder="Provide a specific example to support your third idea..."></textarea>
-        </div>
+            <div style="margin-bottom: 2rem;">
+                <label>Example for Idea 3:</label>
+                <textarea id="example3" placeholder="Provide a specific example..."></textarea>
+            </div>
 
-        <!-- Counter-arguments (for balanced approach) -->
-        <div class="brainstorm-section" style="margin-bottom: 2rem;">
-            <h3>⚖️ Counter-arguments (If using balanced approach)</h3>
-            
-            <label>What might others argue?</label>
-            <textarea id="counter-arg" placeholder="Mention the opposing view..."></textarea>
+            <h2>Step 5: Consider Counter-Arguments (if balanced)</h2>
+            <div style="margin-bottom: 2rem;">
+                <label>What might others argue?</label>
+                <textarea id="counter-arg" placeholder="Mention the opposing view..."></textarea>
+            </div>
 
-            <label>Why do you think your opinion is stronger?</label>
-            <textarea id="counter-response" placeholder="Explain why your view is better..."></textarea>
-        </div>
+            <div style="text-align: center; margin: 2rem 0;">
+                <button class="btn btn-secondary" onclick="saveBrainstorm()">💾 Save Brainstorm</button>
+                <button class="btn btn-danger" onclick="clearBrainstorm()" style="margin-left: 1rem;">🗑️ Clear All</button>
+            </div>
 
-        <!-- Summary Section -->
-        <div class="brainstorm-section" style="margin-bottom: 2rem;">
-            <h3>📝 Summary & Conclusion Ideas</h3>
-            
-            <label>Key points to recap:</label>
-            <textarea id="summary" placeholder="What will you summarize in your conclusion?"></textarea>
-
-            <label>Final statement:</label>
-            <textarea id="conclusion" placeholder="How will you end your essay?"></textarea>
-        </div>
-
-        <!-- Action Buttons -->
-        <div style="text-align: center; margin: 2rem 0;">
-            <button class="btn btn-secondary" onclick="saveBrainstorm()">💾 Save Brainstorm</button>
-            <button class="btn btn-danger" onclick="clearBrainstorm()" style="margin-left: 1rem;">🗑️ Clear All</button>
-        </div>
-
-        <!-- Navigation -->
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="lesson.html" class="btn btn-primary">← Back to Lesson</a>
-            <a href="essay-builder.html" class="btn btn-primary" style="margin-left: 1rem;">Next: Essay Builder →</a>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="lesson.html" class="btn btn-primary">← Back to Lesson</a>
+                <a href="essay-builder.html" class="btn btn-primary" style="margin-left: 1rem;">Next: Essay Builder →</a>
+            </div>
         </div>
     </main>
 
@@ -153,7 +113,6 @@
             if (saved) {
                 const data = JSON.parse(saved);
                 document.getElementById('topic-input').value = data.topic || '';
-                document.getElementById('opinion-input').value = data.opinion || '';
                 document.getElementById('idea1').value = data.idea1 || '';
                 document.getElementById('idea2').value = data.idea2 || '';
                 document.getElementById('idea3').value = data.idea3 || '';
@@ -161,9 +120,6 @@
                 document.getElementById('example2').value = data.example2 || '';
                 document.getElementById('example3').value = data.example3 || '';
                 document.getElementById('counter-arg').value = data.counterArg || '';
-                document.getElementById('counter-response').value = data.counterResponse || '';
-                document.getElementById('summary').value = data.summary || '';
-                document.getElementById('conclusion').value = data.conclusion || '';
                 
                 const opinionRadios = document.querySelectorAll('input[name="opinion"]');
                 opinionRadios.forEach(radio => {
@@ -178,7 +134,6 @@
         function saveBrainstorm() {
             const brainstormData = {
                 topic: document.getElementById('topic-input').value,
-                opinion: document.getElementById('opinion-input').value,
                 opinionType: document.querySelector('input[name="opinion"]:checked').value,
                 idea1: document.getElementById('idea1').value,
                 idea2: document.getElementById('idea2').value,
@@ -186,10 +141,7 @@
                 example1: document.getElementById('example1').value,
                 example2: document.getElementById('example2').value,
                 example3: document.getElementById('example3').value,
-                counterArg: document.getElementById('counter-arg').value,
-                counterResponse: document.getElementById('counter-response').value,
-                summary: document.getElementById('summary').value,
-                conclusion: document.getElementById('conclusion').value
+                counterArg: document.getElementById('counter-arg').value
             };
             
             localStorage.setItem('brainstorm', JSON.stringify(brainstormData));
@@ -201,7 +153,6 @@
         function clearBrainstorm() {
             if (confirm('Are you sure you want to clear everything?')) {
                 document.getElementById('topic-input').value = '';
-                document.getElementById('opinion-input').value = '';
                 document.getElementById('idea1').value = '';
                 document.getElementById('idea2').value = '';
                 document.getElementById('idea3').value = '';
@@ -209,9 +160,6 @@
                 document.getElementById('example2').value = '';
                 document.getElementById('example3').value = '';
                 document.getElementById('counter-arg').value = '';
-                document.getElementById('counter-response').value = '';
-                document.getElementById('summary').value = '';
-                document.getElementById('conclusion').value = '';
                 localStorage.removeItem('brainstorm');
                 alert('✅ Cleared!');
             }
