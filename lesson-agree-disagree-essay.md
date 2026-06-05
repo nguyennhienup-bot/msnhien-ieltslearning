@@ -1,0 +1,189 @@
+# Writing Lesson: Agree/Disagree Essay
+
+## I. INTRODUCTION ABOUT AGREE/DISAGREE ESSAY
+
+### Examples:
+
+**Example 1:** The best way to solve the world's environmental problems is to increase the fuel cost. Do you agree or disagree?
+
+**Example 2:** For school children, their teachers have more influence on their intelligence and social development than their parents. To what extent do you agree or disagree?
+
+**Example 3:** Many people believe that international air travel has a negative impact upon the environment and should therefore be restricted. To what extent do you agree or disagree?
+
+### Answer Types:
+- **One-sided answer:** Completely agree/disagree
+- **Balance answer:** Partly agree/disagree
+
+---
+
+## II. OUTLINE STRUCTURES
+
+### II.1 One-Sided Answer (Completely Agree/Disagree)
+
+| Paragraph | Component | Content |
+|-----------|-----------|---------|
+| **1** | **Introduction** | • Background statement<br>• Thesis statement: In my opinion, I completely agree/disagree with this view. |
+| **2** | **Body 1** | Topic sentence: The first reason why I agree/disagree is that …<br>Support: (Explain/Example) |
+| **3** | **Body 2** | Topic sentence: Another rationale behind my belief is that …<br>Support: (Explain/Example) |
+| **4** | **Conclusion** | In conclusion, I completely agree/disagree that [paraphrase the topic] because [reason 1] and [reason 2]. |
+
+### II.2 Balance Answer (Partly Agree/Disagree)
+
+| Paragraph | Component | Content |
+|-----------|-----------|---------|
+| **1** | **Introduction** | • Background statement<br>• Thesis statement: Although I agree that [viewpoint 1], I still believe [viewpoint 2] |
+| **2** | **Body 1** | Topic sentence: It is true that…<br>• Main idea 1 + Support 1<br>• Main idea 2 + Support 2 |
+| **3** | **Body 2** | Topic sentence: Nevertheless, I still hold the view that…<br>• Main idea 1 + Support 1<br>• Main idea 2 + Support 2 |
+| **4** | **Conclusion** | In conclusion, while I agree with the view that [viewpoint 1], I still believe [viewpoint 2] |
+
+---
+
+## III. TEMPLATES
+
+### III.1 ONE-SIDED ANSWER
+
+#### **INTRODUCTION**
+
+**Sentence 1: Background statement**
+- Many people believe that …
+- It is generally said/claimed/considered that …
+- Many are of the opinion that …
+- A common opinion is that …
+
+**Sentence 2: Thesis statement**
+- Personally, I completely agree with this view.
+- In my opinion, it would be wrong/right to…
+
+#### **BODY 1 (1st Reason)**
+
+**Topic sentence:**
+- Firstly, the option to … is attractive because …
+- To begin with, the idea of … is beneficial due to ...
+- The argument that ... is reasonable as ...
+
+**Explanation:**
+- This is because, ....
+- This can be explained by the fact that …
+
+**Example:**
+- For example, …
+- This can be seen in the case of …
+
+**Result:**
+- As a result, …
+- Consequently, …
+- Therefore,…
+
+#### **BODY 2 (2nd Reason)**
+
+**Topic sentence:**
+- Secondly, the option to … is attractive because …
+- In addition, the idea of … is beneficial due to ...
+- What's more,…
+
+**Explanation:**
+- This is because, ....
+- This can be explained by the fact that …
+- This is due to…
+- Indeed,…
+
+**Example:**
+- For example, …
+- This can be seen in the case of …
+
+**Result:**
+- As a result, …
+- Consequently, …
+- Therefore,…
+
+#### **CONCLUSION**
+
+- In conclusion, it seems to me that … because …
+- In conclusion, for the reasons I have mentioned above, I maintain that…
+
+---
+
+### III.2 BALANCE ANSWER
+
+#### **INTRODUCTION**
+
+**Sentence 1: Background statement**
+- Many people opine that …
+- It is generally said/claimed/considered that …
+- Many are of the opinion that …
+- A common opinion is that …
+
+**Sentence 2: Thesis statement**
+- While there is some truth to this, I believe that …
+- Although this is true to some extent, I think that …
+
+#### **BODY 1 (Points of Agreement)**
+
+**Topic sentence:**
+- On the one hand, there are several reasons why others think that…
+- On the one hand, .. to some extent.
+
+**Main idea 1:**
+- First of all, …
+- Firstly,...
+- The first point is that …
+
+**Support 1:**
+- For instance,...
+- Finally,...
+- As a result,...
+
+**Main idea 2:**
+- An additional/Another noteworthy strong point that …
+
+**Support 2:**
+- This is because..
+- As a result,...
+
+#### **BODY 2 (Points of Disagreement)**
+
+**Topic sentence:**
+- On the other hand, I think that…
+- On the other hand, I would argue that …
+- On the other hand, ……….. should be prioritized
+
+**Main idea 1:**
+- First, A can be…
+
+**Support 1:**
+- This is because…
+- The reason is that…
+
+**Main idea 2:**
+- Moreover, …
+- Furthermore, …
+
+**Support 2:**
+- For instance,...
+- Finally,...
+- As a result,...
+
+#### **CONCLUSION**
+
+- In conclusion, while there are some reasons why people think that …, I am of the opinion that …
+- In conclusion, while there are many benefits/drawbacks regarding ..., I still believe that it is more beneficial/disadvantageous to … because …
+
+---
+
+## IV. PRACTICE EXERCISES
+
+### Exercise 1
+While many people go to university for academic study, more people should be encouraged to do vocational training because there is a lack of qualified workers such as electricians and plumbers. To what extent do you agree or disagree?
+
+### Exercise 2
+The increasing use of computers and mobile phones has had a negative effect on young people's reading and writing skills. Do you agree or disagree?
+
+### Exercise 3
+We cannot help everyone in the world that needs help, so we should only be concerned with our own communities and countries. To what extent do you agree or disagree with this statement?
+
+### Exercise 4
+Some people think that all teenagers should be required to do unpaid work in their free time to help the local community. They believe this would benefit both the individual teenager and society as a whole. Do you agree or disagree?
+
+---
+
+*This lesson teaches students how to structure and write effective Agree/Disagree essays for IELTS Writing Task 2.*
